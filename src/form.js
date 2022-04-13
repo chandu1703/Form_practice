@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-class form extends React.Component{
+class FormList extends React.Component{
     constructor(props){
     super(props)
    this.state={
@@ -64,4 +64,4 @@ class form extends React.Component{
    }
 }
 
-export default form
+export default FormList

@@ -1,0 +1,60 @@
+There were three phases in react lifecycles of components:
+1.Mounting
+2.updating
+3.unmounting
+
+
+1.Mounting: when an instance of component is created and inserted into dom , it is invoked line by line 
+
+methods in mounting:
+
+1.constructor(props):
+=>A special function that will get called whenever a new component is created
+=>It is used to initialise state and binding event handlers.
+=>In constructor super(props) is used to directly overwrite this.state
+=>In constructor this.state used to setstate
+
+2.static getDerivedState From props(props,state):
+=>In the initial stage if the component depends on the props is such scenario we do use this method.
+=>we dont have this.setstate method
+=> instead we pass state to a object, it returns new state /null.
+
+3.render():
+=> this is the only method we use in class component which is responsible for returning jsx 
+and read this.state and this.props
+=> cannot change state and make any ajax calls
+
+4.componentDidMount():
+=>This is called only once in the whole lifecycle pof a component.
+=> invoked immediately after a component and all its children have been rendered.
+
+2.UPDATING:
+when a component is being re-rendered as a result of changes made to state or props
+
+1.static getDerivedState From props(props,state):
+=> this gets called when a component is re-rendered
+
+2.shouldcomponentUpdate():
+=>dictates whether component should re-render or not.
+=>the default behaviour of component is re-rendering so to stop this we can give it a value of false
+
+3.render():
+=> this is the only method we use in class component which is responsible for returning jsx 
+and read this.state and this.props
+=> cannot change state and make any ajax calls
+
+4.getSnapshotBeforeUpdate(prevProps,PrevState):
+=>called right before the component is updated
+=> captures info from dom
+=> this will return a null/return a value , thos value is passed as 3rd paramter to next method.
+
+5.componentDidMUpdate(prevProps,PrevState,snapshot):
+=>called after render is finished in re-rendered cycles, only once called.
+
+
+
+3.UNMOUNTING:
+
+1.componentDidUnmount():
+method is invoked immediately before a component is unmounted and destroyed.
+=>in this cancelling any network requests removing event handlers,cancelling subscriptions .
